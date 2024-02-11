@@ -1,4 +1,3 @@
-# 1분마다 `terrafrom apply` 커맨드를 실행하는 스케줄러
 from dotenv import load_dotenv
 import os
 import time
