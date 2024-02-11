@@ -3,6 +3,7 @@ variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
 variable "region" {}
+variable "ssh" {}
 
 provider "oci" {
 	tenancy_ocid     = var.tenancy_ocid
@@ -63,7 +64,7 @@ resource "oci_core_instance" "generated_oci_core_instance" {
 	}
 	is_pv_encryption_in_transit_enabled = "true"
 	metadata = {
-		"ssh_authorized_keys" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzf6yasdBxMpgqkICuNGIAEIW1hfjdwn8WHhr1UU5F44fhDiTYgaFj0BgAHn77NEb7OcuQbvPmzhEen+09UJmq0+ZIYPDeo0AOQQ1JiioEddFwGwyU5Sk7rQWub76ZRLQaq0QPNNoT3qVJ5gK9+D9bo3rQxCuWGtLGGUc5hSkV8zIlyOJiVhAWAAW3/9knYb8ZAm/jEDvPsCIeWurytzajmyVQMkbKHlSDeNPDrpRz63TaNSjuiNrBUfUGDJ2lSIOii24lCBWG4FW4OKk7RESOI4Ft7OPeNDUHGrM5nBtUbA8ZEKcYt89Q1eAzb09xRC/GrZIbwy3RcmpQETo4Nb6b ssh-key-2024-01-20"
+		"ssh_authorized_keys" = var.ssh
 	}
 	shape = "VM.Standard.A1.Flex"
 	shape_config {
